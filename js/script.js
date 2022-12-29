@@ -38,10 +38,15 @@ function showPage (list, page) {
 
          const img = document.createElement('img')
          img.className = "avatar";
-         img.src = 'https://randomuser.me/api/portraits/women/25.jpg';
+         img.src = ;
+         // reference the pic array on data.js? data[i]
          img.alt = "Profile Picture"
          div.appendChild(img);
 
+         const name = document.createElement('h3');
+         name.innerHTML = `${first} ${last}`
+         //// reference the name array on data.js? data[i]
+         div.appendChild(name);
       }
    }
 }
