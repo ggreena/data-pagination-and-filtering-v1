@@ -16,8 +16,14 @@ For assistance:
 /*
 Create the `showPage` function
 This function will create and insert/append the elements needed to display a "page" of nine students
+Start Index = (page parameter * items per page) - items per page
+End Index = page parameter * items per page
 */
-
+function showPage (list, page) {
+   const startIndex = (page * perPage) - perPage
+   const endIndex = page * perPage
+   const perPage = 9;
+}
 
 
 /*
