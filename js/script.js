@@ -23,6 +23,27 @@ function showPage (list, page) {
    const startIndex = (page * perPage) - perPage
    const endIndex = page * perPage
    const perPage = 9;
+   const studentList = document.getElementsByClassName(student-list);
+   studentList.innerHTML = "";
+   for (let i =0; i<studentList.length; i++) {
+      if (i>=startIndex && i<endIndex) {
+         const body = document.querySelector('body');
+
+         const lilist = document.createElement('li');
+         lilist.className = "student-item cf"
+         body.appendChild(lilist);
+
+         const div = document.querySelector('div')
+         div.className = "student-details";
+
+         const img = document.createElement('img')
+         img.className = "avatar";
+         img.src = 'https://randomuser.me/api/portraits/women/25.jpg';
+         img.alt = "Profile Picture"
+         div.appendChild(img);
+
+      }
+   }
 }
 
 
