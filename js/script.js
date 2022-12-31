@@ -19,22 +19,32 @@ This function will create and insert/append the elements needed to display a "pa
 Start Index = (page parameter * items per page) - items per page
 End Index = page parameter * items per page
 */
-// function showPage (list, page) {
-//    const perPage = 9;
-//    const startIndex = (page * perPage) - perPage
-//    const endIndex = page * perPage
+function showPage (list, page) {
+   const perPage = 9; //how to make perpage more dynamic?
+   const startIndex = (page * perPage) - perPage
+   const endIndex = page * perPage
+   // console.log(list);
+   // console.log(page);
    
-//    // how to make perpage more dynamic?
-//    const studentList = document.getElementsByClassName('student-list');
-//    studentList.innerHTML = "";
-//    for (let i =0; i<studentList.length; i++) {
-//       if (i>=startIndex && i<endIndex) {
-//          // const body = document.querySelector('body');
+   const studentList = document.querySelector(".student-list");
+   studentList.innerHTML = "";
 
-//          const lilist = document.createElement('li');
-//          lilist.className = "student-item cf"
-//          studentList.appendChild(lilist);
-//          console.log(lilist);
+   // for (let i =0; i<studentList.length; i++) {
+
+   //    if (i>=startIndex && i<endIndex) {
+   //       // const body = document.querySelector('body');
+
+   //       const lilist = document.createElement('li');
+   //       lilist.className = "student-item cf"
+   //       // studentList.insertAdjacentHTML(beforeend, lilist);
+   //       studentList.appendChild(lilist);
+         
+           const lilist = document.createElement('li');
+      lilist.className = "student-item cf"
+      // studentList.insertAdjacentHTML(beforeend, lilist);
+      studentList.appendChild(lilist);
+         return console.log(studentList) }
+      
          
 
          // const div1 = document.querySelector('div')
@@ -68,14 +78,8 @@ End Index = page parameter * items per page
    
 // }
 
-
+showPage(data, 10);
 // console.log(showPage());
-const studentList = document.getElementsByClassName('student-list');
-studentList.innerHTML = "";
-const lilist = document.createElement('li');
-lilist.className = "student-item cf"
-studentList.insertAdjacentHTML(beforeend, 'lilist');
-console.log(lilist);
 
 /*
 Create the `addPagination` function
