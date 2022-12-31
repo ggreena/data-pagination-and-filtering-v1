@@ -23,33 +23,24 @@ function showPage (list, page) {
    const perPage = 9; //how to make perpage more dynamic?
    const startIndex = (page * perPage) - perPage
    const endIndex = page * perPage
-   // console.log(list);
-   // console.log(page);
+   console.log(startIndex);
+   console.log(endIndex);
+   
    
    const studentList = document.querySelector(".student-list");
    studentList.innerHTML = "";
+   console.log(list.length)
+   for (let i = 0; i < list.length; i++) {
 
-   // for (let i =0; i<studentList.length; i++) {
+      if (i >= startIndex && i < endIndex) {
+         const lilist = document.createElement('li');
+         lilist.className = "student-item cf"
+         studentList.appendChild(lilist);}
 
-   //    if (i>=startIndex && i<endIndex) {
-   //       // const body = document.querySelector('body');
-
-   //       const lilist = document.createElement('li');
-   //       lilist.className = "student-item cf"
-   //       // studentList.insertAdjacentHTML(beforeend, lilist);
-   //       studentList.appendChild(lilist);
-         
-           const lilist = document.createElement('li');
-      lilist.className = "student-item cf"
-      // studentList.insertAdjacentHTML(beforeend, lilist);
-      studentList.appendChild(lilist);
-         return console.log(studentList) }
+         const div1 = document.createElement('div')
+         div1.className = "student-details";
+         // studentList.insertAdjacentHTML('beforeend', div1);
       
-         
-
-         // const div1 = document.querySelector('div')
-         // div1.className = "student-details";
-         // lilist.appendChild(div1);
 
          // const img = document.createElement('img')
          // img.className = "avatar";
@@ -72,13 +63,14 @@ function showPage (list, page) {
 
          // const joineddate = document.createElement('span');
          // joineddate.innerHTML = `${data[i].registered.date}`
-//          // div2.appendChild(joineddate);
-//       }
-//    }
+         // // div2.appendChild(joineddate);
+         
+      }
    
-// }
+return console.log(studentList) ;
+}
 
-showPage(data, 10);
+showPage(data, 1);
 // console.log(showPage());
 
 /*
