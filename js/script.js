@@ -23,61 +23,70 @@ function showPage (list, page) {
    const perPage = 9; //how to make perpage more dynamic?
    const startIndex = (page * perPage) - perPage
    const endIndex = page * perPage
-   console.log(startIndex);
-   console.log(endIndex);
-   
-   
+ 
    const studentList = document.querySelector(".student-list");
    studentList.innerHTML = "";
-   console.log(list.length)
+ 
    for (let i = 0; i < list.length; i++) {
 
       if (i >= startIndex && i < endIndex) {
-         const lilist = document.createElement('li');
-         lilist.className = "student-item cf"
-         studentList.appendChild(lilist);}
-
-         const div1 = document.createElement('div')
-         div1.className = "student-details";
-         // studentList.insertAdjacentHTML('beforeend', div1);
-      
-
-         // const img = document.createElement('img')
-         // img.className = "avatar";
-         // img.src = `${data[i].picture.medium}`;
-         // img.alt = "Profile Picture"
-         // div1.appendChild(img);
-
-         // const name = document.createElement('h3');
-         // name.innerHTML = `${data[i].name.first} ${data[i].name.last}`
-         // div1.appendChild(name);
-
-         // const email = document.createElement('span');
-         // email.innerHTML = `${data[i].email}`
-         // email.className = "email";
-         // div1.appendChild(email);
-
-         // const div2 = document.querySelector('div')
-         // div1.className = "student-details";
-         // studentList.appendChild(div2);
-
-         // const joineddate = document.createElement('span');
-         // joineddate.innerHTML = `${data[i].registered.date}`
-         // // div2.appendChild(joineddate);
-         
+       const img = `${data[i].picture.medium}`
+       const name = `${data[i].name.first} ${data[i].name.last}`
+       const email = `${data[i].email}`
+       const joined = `${data[i].registered.date}`    
+       const studentItem = `
+          <li class="student-item cf">
+            <div class="student-details">
+               <img class="avatar" src=${data[i].picture.medium} alt="Profile Picture">
+               <h3> ${data[i].name.first} ${data[i].name.last} </h3>
+               <span class="email">${data[i].email} </span>
+            </div>
+            <div class="joined-details">
+               <span class="date">${data[i].registered.date}</span>
+            </div>
+         </li>`;
+      studentList.insertAdjacentHTML("beforeend", studentItem)
       }
-   
-return console.log(studentList) ;
+   }
 }
 
 showPage(data, 1);
-// console.log(showPage());
 
 /*
 Create the `addPagination` function
 This function will create and insert/append the elements needed for the pagination buttons
 */
 
+function addPagination (list) {
+const numButt = Math.ceil(list.length / 9)
+const linkList = document.querySelector(".link-list")
+linkList.innerHTML = ""
+for (let i = 1; i < numButt; i ++){
+   const btn = i
+   const list = `
+   <li>
+      <button type="button">${btn}</button>
+   </li>
+   `
+   linkList.insertAdjacentHTML("beforeend", list)
+   btn.className = 'active' 
+}
+//Select the first pagination button and give it a class name of active.
 
 
-// Call functions
+
+document.addEventListener('click', (e) => {
+   if (e.tagName = "BUTTON") {
+   const active = document.querySelector(".active")
+   active.className = "";
+   linkList.className = "active";
+   showPage(list, linkList.textContent)
+   }
+   ;       
+              });
+console.log(list);
+}
+
+
+// Call functions//
+addPagination(data);
