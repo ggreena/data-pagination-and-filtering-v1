@@ -76,14 +76,14 @@ for (let i = 1; i <= numOfPages; i ++){
 
 linkList.addEventListener('click', (e) => {
    // returns true if clicked element is a button
-   if (e.tagName = "BUTTON") {
+   if (e.target.tagName === "BUTTON") {
       //select the first button with active className and set it equal to empty string
    const bar = document.querySelector(".active")
    bar.className = "";
    //assign active class name to button clicked
-   event.target.className = "active";
+   e.target.className = "active";
    // returns pages of students
-   showPage(list, event.target.textContent);
+   showPage(list, e.target.textContent);
 }})}
 
 
