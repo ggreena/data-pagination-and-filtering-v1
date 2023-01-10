@@ -20,26 +20,6 @@ Start Index = (page parameter * items per page) - items per page
 End Index = page parameter * items per page
 */
 
-// create a new student list based on the search matches and then use that new list as an argument when calling the already existing function to display the students.
-// be case insensitive and work for partial matches
-// add keyup function
-
-// };
-const search = document.getElementById("search");
-
-
-function simpleSearch (searchInput, list) {
-   for (let i = 0; i < list.length; i++){
-      const name = `${data[i].name.first} ${data[i].name.last}`
-      list[i].className = "";
-      if (searchInput.value.length != 0 && list[i].textContent.toLowerCase().includes( searchInput.value.toLowerCase())) {
-      list[i].className = 'match'} else (
-         name[i]);
-
-      }
-
-      }
-simpleSearch(search, data);
 
 function showPage (list, page) {
    const perPage = 9; 
@@ -71,8 +51,6 @@ function showPage (list, page) {
       }
    }
 }
-
-
 
 /*
 Create the `addPagination` function
@@ -112,18 +90,3 @@ linkList.addEventListener('click', (e) => {
 // Call functions//
 showPage(data, 1);
 addPagination(data);
-
-
-//extra credit 
-
-//add a search component without making changes to index.html
-
-const h2 = document.querySelector("h2");
-
-const newbutton = `<label for="search" class="student-search">
-<span>Search by name</span>
-<input id="search" placeholder="Search by name...">
-<button type="button"><img src="img/icn-search.svg" alt="Search icon"></button>
-</label>`
-
-h2.insertAdjacentHTML("beforeend",newbutton)
